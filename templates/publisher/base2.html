@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Title</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #19e0fa, #444444);
+        }
+         .navbar {
+            background-color: linear-gradient(to right, #19e0fa, #444444);
+            box-shadow: 4px 12px 12px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown-menu {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    .dropdown-item:hover {
+        background-color: #948b8b;
+        color:white;
+    }
+    </style>
+</head>
+<body>
+<!--<nav class="navbar navbar-expand-lg navbar-light">-->
+<!--  <div class="container-fluid">-->
+<!--    <a class="navbar-brand"  style="color:white;" href="{% url 'publisher' %}"><i class="fa-solid fa-book"></i>LIBRARY-->
+<!--    </a>-->
+<!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--      <span class="navbar-toggler-icon"></span>-->
+<!--    </button>-->
+<!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--      <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" style="color:white;" aria-current="page" href="{% url 'publisher' %}">Home</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" style="color:white;" aria-current="page" href="{% url 'displaybook' %}">BookList</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--      <form class="d-flex ms-2 me-2">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-light" type="submit">Search</button>-->
+<!--      </form>-->
+<!--      <div class="dropdown ms-2 me-2">-->
+<!--        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--          {% if user.is_authenticated %}-->
+<!--        <a class="navbar-brand" href="#">{{ request.user.username }}</a>-->
+<!--          {% endif %}-->
+<!--        </button>-->
+<!--        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">-->
+<!--          <li><a class="dropdown-item" href="{% url 'ulchat' %}">GroupChat</a></li>-->
+<!--          <li><a class="dropdown-item" href="{% url 'request_form' %}">DeleteRequest</a></li>-->
+<!--          <li><a class="dropdown-item" href="{% url 'feedback_form' %}">SendFeedback</a></li>-->
+<!--          <li><a class="dropdown-item" href="{% url 'about' %}">AboutUs</a></li>-->
+<!--          <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>LogOut</a></li>-->
+<!--        </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+    function goBack() {
+        // Redirect to the home page without submitting the form
+        window.location.href = "{% url 'ulchat' %}";
+    }
+
+    function goBacktohome() {
+        // Redirect to the home page without submitting the form
+        window.location.href = "{% url 'publisher' %}";
+    }
+
+    $(document).on('click', '#add-profile', function(e){
+         e.preventDefault();
+         $.ajax({
+             type: 'POST',
+             url: '{% url 'add_profile' %}',
+             data: {
+                 book_id:
+         });
+    })
+</script>
+</body>
+</html>

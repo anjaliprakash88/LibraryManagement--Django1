@@ -1,0 +1,88 @@
+{% extends 'librarian/base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-5 col-xs-5 text-center">
+            <div id="content-wrapper">
+<!--<div class="col-md-8 col-sm-5 col-xs-5">-->
+<!--<div id="content" class="p-6 p-md-5 pt-5">-->
+<!--    <div class="col-md-12 col-sm-12 col-xs-10">-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3" style="color: red">
+      <p style="color: blue"></p>
+    </div>
+
+    <div class="col-sm-10" style="padding-top: 37px">
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table text-dark"></i>
+          Fill In Information Of Books
+        </div>
+        <div class="card-body">
+          <form action="{% url 'laddbook' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="title"  placeholder="Book Title" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="author" placeholder="Author" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="publisher" placeholder="Publisher" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="year" placeholder="Publication Year" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="desc" placeholder="Book Description" required="required">
+              </div>
+            </div>
+            <div class="row">
+    <div class="col-md-6">
+        <div class="form-group mb-3">
+            <label for="myFile1">Choose Book Cover</label>
+            <input type="file" class="form-control" id="myFile1" name="cover" placeholder="Report Attachment" enctype="multipart/form-data">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group mb-3">
+            <label for="myFile">Choose PDF Book</label>
+            <input type="file" class="form-control" id="myFile" name="pdf" placeholder="Report Attachment" enctype="multipart/form-data">
+        </div>
+    </div>
+</div>
+
+            <div class="col-3"> <!-- Adjust the column width as needed -->
+                <div class="form-group mb-4">
+                   <button type="submit" class="btn btn-outline-dark">Add Now</button>
+                </div>
+           </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3" style="color: red"></div>
+
+  </div>
+</div>
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

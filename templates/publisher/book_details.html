@@ -1,0 +1,73 @@
+{% extends 'publisher/base2.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-5 col-xs-5 text-center">
+            <div id="content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="col-12 mb-3">
+                                <div id="content-wrapper1">
+                                    <div class="container-fluid">
+                                        <ol class="breadcrumb" style="max-width: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"> <!-- Adjust the max-width as needed -->
+                                            <li class="breadcrumb-item">
+<!--                                                <a href="">book Title : {{ object.title }} </a>-->
+                                            </li>
+                                        </ol>
+                                        <div class="card mb-3" style="max-width: 28rem; max-height: 600px;"> <!-- Adjust the max-width as needed -->
+                                            <div class="card-header">
+                                                <i class="fas fa-table text-dark"></i>
+                                                Details Of Book
+                                            </div>
+                                            <div class="card-body">
+                                                {% for message in messages %}
+                                                    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                                                        {{ message }}
+                                                    </div>
+                                                {% endfor %}
+
+                                                <div class="card">
+                                                    <img src="{{ book.cover.url }}" class="card-img-top" style="height:250px;" alt="...">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ object.title }}</h5>
+                                                        <p class="card-text">{{ object.desc }}</p>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush">
+                                                        <li class="list-group-item"><strong>Author :</strong>{{ object.author }}</li>
+                                                        <li class="list-group-item"><strong>Uploded By :</strong>{{ object.uploaded_by }}</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="row top-buffer" style="padding-top: 20px">
+                                                    <div class="col-12">
+                                                        <a href="{% url 'displaybook' %}"><button type="button" class="btn btn-info">Back</button></a>
+                                                        <button type="button" value="{{ book.id }}" class="btn btn-dark" id="add-profile">Add to Profile</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+          <svg
+        style="position: fixed; bottom: 0; left: 0; right: 0; z-index: -1;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+    >
+        <path
+            fill="white"
+            fill-opacity="2"
+            d="M0, 288L48, 272C96, 256, 192, 224, 288, 197.3C384,171, 480, 149, 576, 165.3C672, 181, 768, 235, 864, 250.7C960, 267, 1056, 245, 1152, 250.7C1248, 256, 1344, 288, 1392, 304L1440, 320L1440, 320L1392, 320C1344, 320, 1248, 320, 1152, 320C1056, 320, 960, 320, 864, 320C768, 320, 672, 320, 576, 320C488, 320, 384, 320, 288, 320C192, 320, 96, 320, 48, 320L0, 320Z  "
+        ></path>
+</svg>
+{% endblock %}

@@ -24,3 +24,30 @@ class Book(models.Model):
     user_id = models.CharField(max_length=100, null=True, blank=True)
     pdf = models.FileField(upload_to='pdf')
     cover = models.ImageField(upload_to='covers', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Chat(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    posted_at = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+        return self.message
+
+
+class DeleteRequest(models.Model):
+    delete_request = models.CharField(max_length=100, null=True, blank=True)
+    # requesting_time = models.DateTimeField(auto_now=True, null=True)
+
+    def __str__(self):
+        return self.delete_request
+
+
+class Feedback(models.Model):
+    feedback = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return self.feedback

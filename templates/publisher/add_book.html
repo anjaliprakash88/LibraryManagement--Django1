@@ -1,0 +1,83 @@
+{% extends 'publisher/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3" style="color: red">
+      <p style="color: blue"></p>
+    </div>
+
+    <div class="col-sm-6" style="padding-top: 57px">
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fas fa-table text-dark"></i>
+          Fill In Information Of Books
+        </div>
+        <div class="card-body">
+          <form action="{% url 'uabook' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="title"  placeholder="Book Title" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="author" placeholder="Author" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="publisher" placeholder="Publisher" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="year" placeholder="Publication Year" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="desc" placeholder="Book Description" required="required">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <label>Choose Book Cover</label>
+                <input type="file" id="myFile1" name="cover" placeholder="Report Attachment" enctype="multipart/form-data">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <div class="col">
+                <label>Choose PDF Book</label>
+                <input type="file" id="myFile" name="pdf" placeholder="Report Attachment" enctype="multipart/form-data">
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <button type="submit" class="btn btn-outline-dark" href="">Add Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3" style="color: red"></div>
+
+  </div>
+</div>
+</div>
+
+<svg
+        style="position: fixed; bottom: 0; left: 0; right: 0; z-index: -1;"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+    >
+        <path
+            fill="white"
+            fill-opacity="2"
+            d="M0, 288L48, 272C96, 256, 192, 224, 288, 197.3C384,171, 480, 149, 576, 165.3C672, 181, 768, 235, 864, 250.7C960, 267, 1056, 245, 1152, 250.7C1248, 256, 1344, 288, 1392, 304L1440, 320L1440, 320L1392, 320C1344, 320, 1248, 320, 1152, 320C1056, 320, 960, 320, 864, 320C768, 320, 672, 320, 576, 320C488, 320, 384, 320, 288, 320C192, 1020, 196, 420, 1480, 320L00, 320Z0  "
+        ></path>
+</svg>
+
+{% endblock %}
+

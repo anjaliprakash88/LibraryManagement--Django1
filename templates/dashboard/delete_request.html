@@ -1,0 +1,61 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-5 col-xs-5 text-center">
+            <div id="content-wrapper">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-3" style="color: red">
+  <p style="color: blue"></p>
+</div>
+
+
+
+<!--<div class="col-sm-6" style="padding-top: 25px">-->
+<!--    <div class="card">-->
+<!--</div>-->
+
+
+<!--<div class="card mb-2">-->
+<!--<div class="card-body">-->
+
+<div class="row">
+    <div class="col-sm-8 mt-5">
+    {% for feedback in feedbacks %}
+
+
+        <div class="chat" style="width: 150%; background: white; box-shadow: 2px 0px 25px 10px #111;">
+                
+                <strong><small class="chat-user-special text-dark"> {{ feedback.delete_request }}</small></strong>
+<!--               <strong><small class="chat-user-special text-dark"> {{ feedback.requesting_time }}</small></strong>-->
+
+        </div><br><br><br>
+
+    {% empty %}
+    <h1 class="heading">No delete request</h1><br>
+
+    {% endfor %}
+
+    <div class="col-sm-4"></div>
+    </div>
+
+
+                      </div>
+                    </div>  
+                  </div>
+
+</div>
+
+
+
+<div class="col-sm-2" style="color: red">
+</div>
+
+</div>
+</div>
+
+
+{% endblock content %}
